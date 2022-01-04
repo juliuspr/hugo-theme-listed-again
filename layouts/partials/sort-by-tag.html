@@ -1,0 +1,41 @@
+<!-- <section>
+  {{ range $taxonomyname, $taxonomy := .Site.Taxonomies }}
+    {{ if eq "tags" $taxonomyname }}
+      {{ range $key, $value := $taxonomy }}
+        <div class="text-3xl font-bold">{{ $key }}</div>
+        <ul>
+        {{ range $value.Pages }}
+          <li>
+            <!-- {{ .Date }}
+             {{ .Title }}</li>
+        {{ end }}
+        </ul>
+      {{ end }}
+    {{ end }}
+  {{ end }}
+</section> -->
+
+
+{{ range $taxonomyname, $taxonomy := .Site.Taxonomies }}
+
+  {{ if eq "tags" $taxonomyname }}
+    {{ range $key, $value := $taxonomy }}
+    <!-- {{$value}} -->
+    {{ if ge (where $value.Pages "Section" "sporsmal") 1 }}
+    <div class="">
+      <h4 class="text-4xl font-bold mb-4 mt-6 border-b">{{ $key }}</h4>
+      <ol>
+      <!-- {{range first 5 (where $value.Pages "Section" "blog") }}
+        <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+      {{ end }} -->
+      {{ range $value.Pages }}
+        <li>
+          <!-- {{ .Date }} -->
+           <a href="{{.Permalink}}" class="text-2xl leading-loose">{{ .Title }}</a></li>
+      {{ end }}
+      </ol>
+    </div>
+    {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}

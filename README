@@ -1,0 +1,18 @@
+## Menu
+
+The theme expects a menu ".main"
+
+
+## Views
+
+### Timeline
+
+
+### Listed
+
+Use the following params in the _index.md file to hide the date or tags
+```
+params:
+  no_tags: true
+  no_date: true
+```

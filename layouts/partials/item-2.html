@@ -1,0 +1,16 @@
+<li class="flex items-baseline pb-0.5">
+
+  <a class="truncate hover:text-indigo-700 underline decoration-1 underline-offset-4 decoration-wavy decoration-indigo-400" href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title | markdownify }}</a>{{ partial "is-draft.html" . }}
+  {{ if  not (and .Parent.Params.params.no_tags .Parent.Params.params.no_date) }}
+    <hr class="my-0 mx-2 h-1 border-0 border-b border-dotted border-indigo-200 flex-[1_0_1rem]">
+  {{ end }}
+  {{ if not .Parent.Params.params.no_tags }}
+    <a class="text-neutral-500 truncate">
+      {{range $key, $value := .Params.tags}} {{.}}{{ if ne $key (sub (len $.Params.tags) 1) }},{{ end }}{{end}}
+    </a>&nbsp;&nbsp;
+  {{ end }}
+
+  {{ if not .Parent.Params.params.no_date }}
+    <time class="g flex-initial tabular-nums whitespace-nowrap text-neutral-400 hidden md:block" datetime="{{ dateFormat "2006-01-02" .Date }}">{{ dateFormat "2006/01/02" .Date }}</time>
+  {{ end }}
+</li>

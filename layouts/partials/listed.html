@@ -1,0 +1,10 @@
+<section>
+  <h1 class="text-4xl border-b mb-10">Innlegg</h1>
+  <ul class="leading-loose list-none pl-0 text-2xl">
+    {{ range (.Paginate ( where .Site.Pages "Section" .Type ).ByDate).Pages }}
+      {{ if ne .Kind "section" }}
+      {{- partial "item-2.html" . (dict "no_tags" true) }}
+      {{ end }}
+    {{ end }}
+  </ul>
+</section>

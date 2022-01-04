@@ -1,0 +1,21 @@
+{{ define "main" }}
+  <div class="w-full mb-10 mx-auto md:grid md:grid-cols-2"> <!-- featured grid start -->
+   {{range (.Paginate ( where .Site.Pages "Params.featured" "=" true ).ByDate).Pages }}
+    {{- partial "item-3.html" .}}
+   {{end}}
+ </div> <!-- featured grid end -->
+
+<main id="main" class="w-full mx-auto">
+  <h1 class="font-serif border-b-2 mb-6 text-6xl font-bold">I media</h1>
+  <section>
+    <ul reversed class="leading-loose list-none pl-0 text-2xl">
+      {{ range (where site.Pages "Type" "in" site.Params.mainSections).ByDate.Reverse }}
+        {{ if ne .Kind "section" }}
+        {{- partial "item-2.html" .}}
+        {{ end }}
+      {{ end }}
+    </ul>
+  </section>
+</main>
+
+{{ end }}

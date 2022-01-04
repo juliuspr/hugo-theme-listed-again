@@ -1,0 +1,53 @@
+<div class="container mx-auto w-full">
+  <div class="relative wrap overflow-hidden p-10 h-full">
+    <div class="border-2-2 absolute border-opacity-20 border-gray-700 h-full border" style="left: 50%"></div>
+
+
+{{ range ( where .Site.Pages "Section" .Type).ByDate }}
+  {{ if ne .Kind "section" }}
+    {{if .Params.right }}
+    <!-- right timeline -->
+    <div class="mb-8 flex justify-between items-center w-full right-timeline">
+      <div class="order-1 w-5/12"></div>
+      <div class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-16 h-16 rounded-full">
+        <h1 class="mx-auto font-semibold text-xl text-white">{{ dateFormat "2006" .Date }}</h1>
+      </div>
+
+        <div class="order-1 bg-indigo-50 rounded-lg shadow-md w-5/12 px-6 py-4">
+          <a href="{{.Permalink}}">
+          <h3 class="mb-3 font-bold text-black text-2xl">{{.Title}}{{ partial "is-draft.html" .}}</h3>
+          </a>
+          <p class="text-sm leading-snug tracking-wide text-gray-900 text-opacity-100">{{.Description}}</p>
+        </div>
+    </div>
+    {{else}}
+
+    <!-- left timeline -->
+    <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+      <div class="order-1 w-5/12"></div>
+      <div class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-16 h-16 rounded-full">
+        <h1 class="mx-auto text-white font-semibold text-lg">{{ dateFormat "2006" .Date }}</h1>
+      </div>
+
+        <div class="order-1 bg-red-100 rounded-lg shadow-md w-5/12 px-6 py-4">
+          <a href="{{.Permalink}}">
+            <h3 class="mb-3 font-bold text-black text-2xl">{{ .Title }}{{ partial "is-draft.html" .}}</h3>
+          </a>
+          <p class="text-sm font-medium leading-snug tracking-wide text-black text-opacity-100">{{ .Description }}</p>
+        </div>
+
+    </div>
+    {{end}}
+  {{ end }}
+{{ end }}
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+<!-- https://tailwindcomponents.com/component/simple-vertical-timeline -->

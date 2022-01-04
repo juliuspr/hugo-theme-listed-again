@@ -1,0 +1,25 @@
+{{ define "main" }}
+
+<main id="main" class="w-full mx-auto">
+  <h1 class="text-6xl border-b-2 mb-6">{{ with .Site.GetPage "section" .Section }}{{ .Title }}{{ end }}</h1>
+  <div class="text-2xl italic">
+    {{.Description}}
+  </div>
+  <div class="prose prose-2xl mb-10">
+    {{.Content}}
+  </div>
+
+  {{ if (eq .Params.view "timeline")}}
+    {{- partial "timeline-1.html" .}}
+
+  {{else if (eq .Params.view "sort-by-tag")}}
+    {{- partial "sort-by-tag.html" .}}
+
+  {{else if (eq .Params.view "listed-simple")}}
+    {{- partial "listed-simple.html" . }}
+  {{else}}
+    {{- partial "listed.html" . }}
+  {{end}}
+</main>
+
+{{ end }}

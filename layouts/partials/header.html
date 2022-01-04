@@ -1,0 +1,20 @@
+<header class="lg:p-10 p-5  col-span-1 border-r border-b md:border-b-0">
+  <div class="text-2xl font-bold leading-10 md:mb-6"><a href="/">{{.Site.Title}}</a></div>
+  {{- $currentPage := . }}
+  <ul id="menu" class="text-md hidden md:block">
+      {{- range .Site.Menus.main }}
+      {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL) ) | absLangURL }}
+      {{- $page_url:= $currentPage.Permalink | absLangURL }}
+      {{- $is_search := eq ($.Site.GetPage .KeyName).Layout `search` }}
+      <li class="leading-8">
+          <a href="{{ .URL | absLangURL }}" title="{{ .Title | default .Name }} {{- cond $is_search (" (Alt + /)" | safeHTMLAttr) ("" | safeHTMLAttr ) }}"
+          {{- cond $is_search (" accesskey=/" | safeHTMLAttr) ("" | safeHTMLAttr ) }}>
+              <span {{- if eq $menu_item_url $page_url }} class="active" {{- end }}>
+                  {{- .Pre }}
+                  {{- .Name -}}
+                  {{ .Post -}}
+              </span>
+          </a>
+      </li>
+      {{- end }}
+</header>

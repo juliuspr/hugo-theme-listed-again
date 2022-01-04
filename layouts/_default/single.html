@@ -1,0 +1,13 @@
+{{ define "main" }}
+  <aside class="fixed hidden max-w-xs min-w-xs w-xs xl:block bg-white border m-10 rounded shadow top-0 p-5 prose right-0 text-sm">
+    <h3 class="font-bold text-center">Innhold</h3>
+    {{ .TableOfContents }}
+  </aside>
+  <main id="main" class="prose prose-2xl">
+    <h1>{{ .Title | markdownify }}{{ partial "is-draft.html" .}}</h1>
+    <div class="italic">
+      {{.Description}}
+    </div>
+    {{ .Content }}
+  </main>
+{{ end }}

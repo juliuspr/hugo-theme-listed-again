@@ -1,0 +1,8 @@
+<li>
+  UNUSED
+  <time class="g time text-neutral-400" datetime="{{ dateFormat "2006-01-02" .Date }}">{{ dateFormat "2006-01-02" .Date }}</time>
+  <hr class="hr-list">
+  <a class="link" href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}
+  </a>
+  <a href="" class="text-neutral-300">{{range .Params.tags}} {{.}}{{end}}</a>&nbsp;&nbsp;
+</li>
