@@ -2,7 +2,9 @@ Theme is inspired by the [listed theme](https://github.com/ronv/listed )
 
 ## Menu
 
-The theme expects a menu ".main". Add the following to your config.yaml/toml file:
+The theme expects a menu ".main".
+
+Add the following to your config.yaml/toml file:
 
 ```
 menu:
@@ -10,7 +12,6 @@ menu:
     - name: Posts
       url: /posts/
       weight: 1
-
     - name: About
       url: /about/
       weight: 2
@@ -20,6 +21,11 @@ menu:
 
 ### Timeline
 
+Add the following in the _index.md file of a section:
+
+```
+view: timeline
+```
 
 ### Listed
 
