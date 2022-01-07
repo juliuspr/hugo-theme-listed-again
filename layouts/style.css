@@ -7,6 +7,12 @@
 /* h2.post {
     padding-top: .5rem;
 } */
+blockquote > p::before {
+  content: none !important;
+}
+blockquote > p::after {
+  content: none !important;
+}
 
 :target {
   @apply bg-indigo-100;
