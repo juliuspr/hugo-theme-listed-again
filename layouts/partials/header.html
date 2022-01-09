@@ -1,4 +1,4 @@
-<header class="lg:p-10 p-5  col-span-1 border-r border-b md:border-b-0">
+<header class="lg:p-10 p-5 grid sticky bg-neutral-100 top-0 md:relative grid-cols-2 z-50 md:block col-span-1 border-r border-b md:border-b-0">
   <div class="text-2xl font-bold leading-10 md:mb-6"><a href="/">{{.Site.Title}}</a></div>
   {{- $currentPage := . }}
   <ul id="menu" class="text-md hidden md:block">
@@ -17,4 +17,37 @@
           </a>
       </li>
       {{- end }}
+    </ul>
+    <a href="#show-menu" class="text-right my-auto md:hidden justify-self-end">
+      <svg xmlns="http://www.w3.org/2000/svg" class=" h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </a>
 </header>
+
+<div id="show-menu" class="md:hidden target:block target:fixed absolute  hidden text-3xl text-center z-50  bg-blue-50 w-full h-full">
+
+  <div class="flex justify-end"><a href="" class="border bg-blue-900 text-white shadow px-10 rounded py-5 m-5">Close X</a></div>
+  <div>
+
+    <ul id="menu" class="text-md mt-20">
+
+        {{- range .Site.Menus.main }}
+        {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL) ) | absLangURL }}
+        {{- $page_url:= $currentPage.Permalink | absLangURL }}
+        {{- $is_search := eq ($.Site.GetPage .KeyName).Layout `search` }}
+        <li class=" leading-relaxed underline decoration-wavy decoration-amber-500 decoration-2 underline-offset-4">
+            <a href="{{ .URL | absLangURL }}" title="{{ .Title | default .Name }} {{- cond $is_search (" (Alt + /)" | safeHTMLAttr) ("" | safeHTMLAttr ) }}"
+            {{- cond $is_search (" accesskey=/" | safeHTMLAttr) ("" | safeHTMLAttr ) }}>
+                <span {{- if eq $menu_item_url $page_url }} class="active" {{- end }}>
+                    {{- .Pre }}
+                    {{- .Name -}}
+                    {{ .Post -}}
+                </span>
+            </a>
+        </li>
+        {{- end }}
+
+      </ul>
+  </div>
+</div>
