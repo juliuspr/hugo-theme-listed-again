@@ -1,5 +1,5 @@
 {{ define "main" }}
-  <div class="w-full mb-10 grid gap-4 md:grid-cols-2"> <!-- featured grid start -->
+  <div class="w-11/12 lg:w-3/4 mx-auto mb-10 grid gap-4 md:grid-cols-2"> <!-- featured grid start -->
    {{range (.Paginate ( where .Site.Pages "Params.featured" "=" true ).ByDate).Pages }}
     {{- partial "item-3.html" .}}
    {{end}}
