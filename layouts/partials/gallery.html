@@ -1,0 +1,10 @@
+<section class="mx-auto">
+  <div class="grid gap-10 2xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2">
+  {{ range .Pages }}
+    <div class="transition ease delay-50 border shadow rounded-lg hover:shadow-lg hover:-translate-x-0.5 hover:-translate-y-0.5 hover:rounded-2xl px-3 pt-3 pb-6 bg-white">
+      <h1 class="hover:text-indigo-700 text-4xl leading-tight mb-2 underline decoration-1 underline-offset-4 decoration-indigo-400" ><a href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .LinkTitle | markdownify }}</a>{{ partial "is-draft.html" . }}</h1>
+      {{ .Description }}
+    </div>
+  {{ end }}
+  </div>
+</section>

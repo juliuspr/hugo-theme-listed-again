@@ -6,10 +6,10 @@
       {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL) ) | absLangURL }}
       {{- $page_url:= $currentPage.Permalink | absLangURL }}
       {{- $is_search := eq ($.Site.GetPage .KeyName).Layout `search` }}
-      <li class="leading-8">
+      <li class="mt-3">
           <a href="{{ .URL | absLangURL }}" title="{{ .Title | default .Name }} {{- cond $is_search (" (Alt + /)" | safeHTMLAttr) ("" | safeHTMLAttr ) }}"
           {{- cond $is_search (" accesskey=/" | safeHTMLAttr) ("" | safeHTMLAttr ) }}>
-              <span {{- if eq $menu_item_url $page_url }} class="active" {{- end }}>
+              <span {{- if eq $menu_item_url $page_url }} class="active leading-0" {{- end }}>
                   {{- .Pre }}
                   {{- .Name -}}
                   {{ .Post -}}
@@ -31,12 +31,11 @@
   <div>
 
     <ul id="menu" class="text-md mt-20">
-
         {{- range .Site.Menus.main }}
         {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL) ) | absLangURL }}
         {{- $page_url:= $currentPage.Permalink | absLangURL }}
         {{- $is_search := eq ($.Site.GetPage .KeyName).Layout `search` }}
-        <li class=" leading-relaxed underline decoration-wavy decoration-amber-500 decoration-2 underline-offset-4">
+        <li class="leading-relaxed underline decoration-wavy decoration-amber-500 decoration-2 underline-offset-4">
             <a href="{{ .URL | absLangURL }}" title="{{ .Title | default .Name }} {{- cond $is_search (" (Alt + /)" | safeHTMLAttr) ("" | safeHTMLAttr ) }}"
             {{- cond $is_search (" accesskey=/" | safeHTMLAttr) ("" | safeHTMLAttr ) }}>
                 <span {{- if eq $menu_item_url $page_url }} class="active" {{- end }}>

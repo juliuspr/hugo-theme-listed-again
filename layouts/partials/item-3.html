@@ -1,5 +1,5 @@
-<a href="{{.Permalink}}" class="hover:scale-105 underline hover:decoration-red-600 decoration-red-500 underline-offset-2 ">
-  <div class="flex text-center px-5 w-full h-44 bg-white dark:bg-gray-800 rounded-lg border border-gray-400 shadow-lg">
+<a href="{{.Permalink}}" class="transition ease hover:scale-105 underline rounded-lg shadow hover:shadow-xl hover:decoration-red-600 decoration-red-500 underline-offset-2 ">
+  <div class="flex text-center px-5 w-full h-44 bg-white dark:bg-gray-800 rounded-lg border border-gray-400 ">
     <h4 tabindex="0" class="m-auto focus:outline-none text-gray-800 dark:text-gray-100 font-bold text-4xl ">{{ .Title | markdownify }}{{ partial "is-draft.html" . }}</h4>
   </div>
 </a>

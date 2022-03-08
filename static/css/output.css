@@ -1238,6 +1238,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 2.5rem;
 }
 
+.mb-12 {
+  margin-bottom: 3rem;
+}
+
+.mt-3 {
+  margin-top: 0.75rem;
+}
+
 .mt-20 {
   margin-top: 5rem;
 }
@@ -1454,6 +1462,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   gap: 1rem;
 }
 
+.gap-10 {
+  gap: 2.5rem;
+}
+
 .justify-self-end {
   justify-self: end;
 }
@@ -1657,6 +1669,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-right: 1rem;
 }
 
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
 .px-10 {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
@@ -1672,11 +1689,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 0.75rem;
 }
 
-.px-3 {
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-}
-
 .py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
@@ -1684,6 +1696,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .pl-0 {
   padding-left: 0px;
+}
+
+.pt-3 {
+  padding-top: 0.75rem;
+}
+
+.pb-6 {
+  padding-bottom: 1.5rem;
 }
 
 .pb-0\.5 {
@@ -1735,14 +1755,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 2rem;
 }
 
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-}
-
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 .text-xs {
@@ -1797,12 +1817,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 2;
 }
 
-.leading-10 {
-  line-height: 2.5rem;
+.leading-tight {
+  line-height: 1.25;
 }
 
-.leading-8 {
-  line-height: 2rem;
+.leading-10 {
+  line-height: 2.5rem;
 }
 
 .leading-relaxed {
@@ -1811,10 +1831,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .leading-snug {
   line-height: 1.375;
-}
-
-.leading-tight {
-  line-height: 1.25;
 }
 
 .tracking-wide {
@@ -1890,14 +1906,14 @@ Ensure the default browser behavior of the `hidden` attribute.
           text-decoration-line: underline;
 }
 
-.decoration-amber-500 {
-  -webkit-text-decoration-color: #f59e0b;
-          text-decoration-color: #f59e0b;
-}
-
 .decoration-indigo-400 {
   -webkit-text-decoration-color: #818cf8;
           text-decoration-color: #818cf8;
+}
+
+.decoration-amber-500 {
+  -webkit-text-decoration-color: #f59e0b;
+          text-decoration-color: #f59e0b;
 }
 
 .decoration-red-500 {
@@ -1910,12 +1926,12 @@ Ensure the default browser behavior of the `hidden` attribute.
           text-decoration-style: wavy;
 }
 
-.decoration-2 {
-  text-decoration-thickness: 2px;
-}
-
 .decoration-1 {
   text-decoration-thickness: 1px;
+}
+
+.decoration-2 {
+  text-decoration-thickness: 2px;
 }
 
 .underline-offset-4 {
@@ -1948,6 +1964,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.transition {
+  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
 
 /* h2.post {
@@ -1992,20 +2016,54 @@ hr {
   display: block;
 }
 
+.hover\:-translate-x-0\.5:hover {
+  --tw-translate-x: -0.125rem;
+  transform: var(--tw-transform);
+}
+
+.hover\:-translate-y-0\.5:hover {
+  --tw-translate-y: -0.125rem;
+  transform: var(--tw-transform);
+}
+
+.hover\:-translate-x-0:hover {
+  --tw-translate-x: -0px;
+  transform: var(--tw-transform);
+}
+
+.hover\:-translate-y-0:hover {
+  --tw-translate-y: -0px;
+  transform: var(--tw-transform);
+}
+
+.hover\:-translate-y-1:hover {
+  --tw-translate-y: -0.25rem;
+  transform: var(--tw-transform);
+}
+
+.hover\:-translate-x-1:hover {
+  --tw-translate-x: -0.25rem;
+  transform: var(--tw-transform);
+}
+
 .hover\:scale-105:hover {
   --tw-scale-x: 1.05;
   --tw-scale-y: 1.05;
   transform: var(--tw-transform);
 }
 
-.hover\:text-neutral-500:hover {
-  --tw-text-opacity: 1;
-  color: rgb(115 115 115 / var(--tw-text-opacity));
+.hover\:rounded-2xl:hover {
+  border-radius: 1rem;
 }
 
 .hover\:text-indigo-700:hover {
   --tw-text-opacity: 1;
   color: rgb(67 56 202 / var(--tw-text-opacity));
+}
+
+.hover\:text-neutral-500:hover {
+  --tw-text-opacity: 1;
+  color: rgb(115 115 115 / var(--tw-text-opacity));
 }
 
 .hover\:text-gray-700:hover {
@@ -2016,6 +2074,18 @@ hr {
 .hover\:decoration-red-600:hover {
   -webkit-text-decoration-color: #dc2626;
           text-decoration-color: #dc2626;
+}
+
+.hover\:shadow-lg:hover {
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.hover\:shadow-xl:hover {
+  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .focus\:outline-none:focus {
@@ -2119,6 +2189,10 @@ hr {
     width: 75%;
   }
 
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .lg\:p-10 {
     padding: 2.5rem;
   }
@@ -2127,5 +2201,11 @@ hr {
 @media (min-width: 1280px) {
   .xl\:block {
     display: block;
+  }
+}
+
+@media (min-width: 1536px) {
+  .\32xl\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
